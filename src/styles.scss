@@ -54,3 +54,6 @@ $my-app-theme: mat-dark-theme($my-app-primary, $my-app-accent, $my-app-warn);
 .cdk-ovelay-0.cdk-overlay-pane {
   left: 50px !important;
 }
+.mat-dialog-container {
+  background-color: #212121;
+}

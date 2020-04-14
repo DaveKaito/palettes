@@ -1,6 +1,13 @@
-import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit, Inject } from "@angular/core";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { ApiService } from "src/app/data/api.service";
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from "@angular/material/dialog";
+
+export interface DialogData {}
 
 @Component({
   selector: "app-colors",
@@ -9,7 +16,9 @@ import { ApiService } from "src/app/data/api.service";
 })
 export class ColorsComponent implements OnInit {
   data;
-  constructor(private apiService: ApiService, private cd: ChangeDetectorRef) {}
+  constructor(private apiService: ApiService, public dialog: MatDialog) {}
+
+  //getting initial palettes based on provided color array in api.service
   getPalettes() {
     this.apiService.getInitialPalettes().subscribe(
       (data) => {
@@ -21,31 +30,20 @@ export class ColorsComponent implements OnInit {
     );
   }
 
+  // Angular Drag&Drop function
   drop(event: CdkDragDrop<0>) {
     moveItemInArray(this.data, event.previousIndex, event.currentIndex);
     console.error();
     console.log("item moved");
   }
-  hexValue;
 
-  getHexValue(value: string) {
-    this.hexValue = value;
-    console.log(this.hexValue);
-  }
+  // Array with the color Modes for the select function
   colorModes = ["monochrome", "analogic", "complement"];
 
+  // Default selected mode on page load
   selectedMode = "complement";
 
-  mode;
-  getUserInput() {
-    if (this.mode !== undefined) {
-      this.mode = this.selectedMode;
-    } else {
-      this.mode = "complement";
-    }
-    console.log(this.mode);
-  }
-
+  // After changing the hex value and pressing enter the desired color palette will be displayed
   getUserPalette(hexValue, mode) {
     this.apiService.getPalettes(hexValue, mode).subscribe(
       (data) => {
@@ -57,7 +55,29 @@ export class ColorsComponent implements OnInit {
     );
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(HexDialogComponent, {
+      width: "550px",
+      data: this.data,
+    });
+  }
+
   ngOnInit() {
     this.getPalettes();
+  }
+}
+@Component({
+  selector: "hex-dialog",
+  templateUrl: "./hex-dialog/hex-dialog.component.html",
+  styleUrls: ["./hex-dialog/hex-dialog.component.scss"],
+})
+export class HexDialogComponent {
+  constructor(
+    public dialogRef: MatDialogRef<HexDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

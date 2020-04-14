@@ -9,6 +9,9 @@
           }}</mat-option>
         </mat-select>
       </mat-form-field>
+      <button mat-icon-button (click)="openDialog()">
+        <mat-icon>code</mat-icon>
+      </button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -29,12 +32,6 @@
     >
       <div class="color_info">
         <div class="color_btns">
-          <button mat-icon-button matTooltip="Adjust color" color="primary">
-            <mat-icon>color_lens</mat-icon>
-          </button>
-          <button mat-icon-button matTooltip="Lock color" color="primary">
-            <mat-icon>lock</mat-icon>
-          </button>
           <button
             cdkDragHandle
             mat-icon-button

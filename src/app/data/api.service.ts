@@ -15,8 +15,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getInitialPalettes(): Observable<Palettes[]> {
-    return this.http.get<Palettes[]>(
+  getInitialPalettes(): Observable<Palettes> {
+    return this.http.get<Palettes>(
       `${this.apiUrl}hex=${
         this.defaultColors[
           Math.floor(Math.random() * this.defaultColors.length)
@@ -25,8 +25,8 @@ export class ApiService {
     );
   }
 
-  getPalettes(value, userMode): Observable<Palettes[]> {
-    return this.http.get<Palettes[]>(
+  getPalettes(value, userMode): Observable<Palettes> {
+    return this.http.get<Palettes>(
       `${this.apiUrl}hex=${value}&mode=${userMode}&count=5`
     );
   }

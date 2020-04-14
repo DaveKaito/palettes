@@ -1,0 +1,25 @@
+<h1 style="color: white;" mat-dialog-title>Values</h1>
+<div mat-dialog-content>
+  <ng-container *ngIf="data"
+    ><div class="color_container">
+      <div *ngFor="let color of data">
+        <mat-card [style.backgroundColor]="color.hex.value"> </mat-card>
+      </div>
+    </div>
+    <div class="values">
+      <div *ngFor="let color of data">
+        <p>{{ color.hex.value }}</p>
+      </div>
+    </div>
+    <div class="values">
+      <div *ngFor="let color of data">
+        <p>{{ color.rgb.value }}</p>
+      </div>
+    </div>
+    <div class="values">
+      <div *ngFor="let color of data">
+        <p>{{ color.cmyk.value }}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>
