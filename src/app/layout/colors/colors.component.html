@@ -1,0 +1,63 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div class="mat-elevation-z8">
+      <p>{{ selectedMode || mode }}</p>
+      <mat-form-field>
+        <mat-select [(ngModel)]="selectedMode" class="select" color="primary">
+          <mat-option *ngFor="let modes of colorModes" [value]="modes">{{
+            modes
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-grid-list
+  cols="5"
+  gutterSize="0px"
+  style="height: calc(100vh - 56px);"
+  rowHeight="fit"
+  cdkDropList
+  (cdkDropListDropped)="drop($event)"
+  cdkDropListOrientation="horizontal"
+>
+  <ng-container *ngIf="data">
+    <mat-grid-tile
+      cdkDrag
+      *ngFor="let color of data"
+      [style.backgroundColor]="color.hex.value"
+    >
+      <div class="color_info">
+        <div class="color_btns">
+          <button mat-icon-button matTooltip="Adjust color" color="primary">
+            <mat-icon>color_lens</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Lock color" color="primary">
+            <mat-icon>lock</mat-icon>
+          </button>
+          <button
+            cdkDragHandle
+            mat-icon-button
+            matTooltip="Drag color"
+            color="primary"
+          >
+            <mat-icon>drag_indicator</mat-icon>
+          </button>
+        </div>
+        <div class="color_form">
+          <mat-form-field class="form_field">
+            <input
+              [(ngModel)]="color.hex.clean"
+              aria-label="hex value for color"
+              class="color_value"
+              color="primary"
+              autocomplete="off"
+              matInput
+              maxlength="6"
+              (keyup.enter)="getUserPalette(color.hex.clean, selectedMode)"
+            />
+          </mat-form-field>
+        </div>
+      </div> </mat-grid-tile
+  ></ng-container>
+</mat-grid-list>

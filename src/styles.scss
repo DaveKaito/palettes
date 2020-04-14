@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@import "~normalize.css";
+@include mat-core();
+
+$my-app-primary: mat-palette($mat-grey, 800);
+$my-app-accent: mat-palette($mat-deep-purple, 200);
+$my-app-warn: mat-palette($mat-red, 500);
+
+$my-app-theme: mat-dark-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@include angular-material-theme($my-app-theme);
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  height: 0 !important;
+}
+.mat-form-field {
+  align-self: center;
+  font-weight: 700;
+  font-size: calc(0.2rem + 2.5vw);
+  color: rgba(0, 0, 0, 0.7);
+}
+.mat-form-field-infix {
+  width: 100% !important;
+}
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 1em;
+}
+.mat-select-panel {
+  margin-top: 2em;
+}
+
+.color_info {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  .color_form {
+    margin-top: auto;
+  }
+  .color_btns {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+  }
+}
+.mat-form-field {
+  text-align: center !important;
+}
+.cdk-drag-preview .mat-list-item-content {
+  @extend .color_info;
+}
+
+.cdk-ovelay-0.cdk-overlay-pane {
+  left: 50px !important;
+}
