@@ -11,7 +11,9 @@ export class NavComponent implements OnInit {
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
       "github",
-      sanitizer.bypassSecurityTrustResourceUrl("../../../assets/github.svg")
+      sanitizer.bypassSecurityTrustResourceUrl(
+        "../../../assets/images/github.svg"
+      )
     );
   }
 
