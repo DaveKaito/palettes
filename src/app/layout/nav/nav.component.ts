@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
     iconRegistry.addSvgIcon(
       "github",
       sanitizer.bypassSecurityTrustResourceUrl(
-        "./../../assets/images/github.svg"
+        "../../../../assets/images/github.svg"
       )
     );
   }
