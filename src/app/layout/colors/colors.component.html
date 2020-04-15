@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <div class="mat-elevation-z8">
-      <p>{{ selectedMode || mode }}</p>
+      <p>{{ selectedMode }}</p>
       <mat-form-field>
         <mat-select [(ngModel)]="selectedMode" class="select" color="primary">
           <mat-option *ngFor="let modes of colorModes" [value]="modes">{{
