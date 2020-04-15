@@ -55,6 +55,7 @@ export class ColorsComponent implements OnInit {
     );
   }
 
+  //open dialog with api data
   openDialog(): void {
     const dialogRef = this.dialog.open(HexDialogComponent, {
       width: "550px",
@@ -66,6 +67,7 @@ export class ColorsComponent implements OnInit {
     this.getPalettes();
   }
 }
+//Dialog for source colors
 @Component({
   selector: "hex-dialog",
   templateUrl: "./hex-dialog/hex-dialog.component.html",
