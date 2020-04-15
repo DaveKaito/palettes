@@ -1,27 +1,19 @@
-# Ngpalettes
+# Palettes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+[Live version](https://davekaito.github.io/palettes)
 
-## Development server
+**Quick Info**
+This website is based on:
+* Angular 2+
+* Angular Material Design
+* API: https://www.thecolorapi.com/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Development
 
-## Code scaffolding
+I wanted to make this project, because i needed a quick and easy hex color generator. I always struggle to find color combinations i like, and also fit together. I included a select option to change between the modes, to accomodate for different needs. The project itself did not take that long, and was a nice refresher for my angular know-how.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+Essentially you just copy a hex color code that you need a fitting scheme for, and paste it in one of the 5 inputs. According to the selected mode you will get a fitting color scheme. If you want to quickly copy the colors, you can just click the code button and there will be a list of the color codes in all the variations.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Thanks for checking out my small project!
