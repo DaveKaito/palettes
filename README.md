@@ -10,7 +10,7 @@ This website is based on:
 
 ## Development
 
-I wanted to make this project, because i needed a quick and easy hex color generator. I always struggle to find color combinations i like, and also fit together. I included a select option to change between the modes, to accomodate for different needs. The project itself did not take that long, and was a nice refresher for my angular know-how.
+I wanted to make this project, because i needed a quick and easy hex color generator. I always struggle to find color combinations that i like, and that also fit together. I included a select option to change between the modes, to accomodate for different needs. The project itself did not take that long, and was a nice refresher for my angular know-how.
 
 ## Usage
 
